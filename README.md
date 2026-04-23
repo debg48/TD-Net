@@ -243,8 +243,8 @@ If you find this project useful, please consider giving it a ⭐!
 ## 📚 Related Work
 
 Check out our other projects:
-- [Transformer Models for Twitter Sentiment Analysis](https://github.com/yourusername/twitter-sentiment-transformers)
-- [Medical Image Classification with Vision Transformers](https://github.com/yourusername/medical-vit)
+- [Retrieval Sensitivity Index](https://github.com/debg48/RAG-metric)
+- [JU-LDD](https://github.com/debg48/JU-LDD)
 
 ---
 
