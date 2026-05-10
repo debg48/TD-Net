@@ -1,0 +1,9 @@
+tensorflow>=2.10
+opendatasets
+pandas
+openpyxl
+scikit-learn
+matplotlib
+opencv-python
+numpy
+seaborn

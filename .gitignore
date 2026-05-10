@@ -1,0 +1,29 @@
+# Data
+data/
+
+# Results
+results/
+
+# Virtual environment
+env/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# Kaggle
+kaggle.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo

@@ -24,6 +24,11 @@ The methodology achieves **state-of-the-art performance** with **98% accuracy** 
 
 ---
 
+> [!NOTE]
+> Since the implementation was revamped, some experimental variance was introduced. Results obtained using **random seed 42** are the closest to the performance metrics reported in the paper.
+
+---
+
 ## 🗂️ Datasets
 
 ### Dataset #1: Kaggle TB Chest X-Ray Dataset
@@ -60,68 +65,62 @@ git clone https://github.com/debg48/TD-Net.git
 cd TD-Net
 ```
 
-2. **Install dependencies**:
+2. **Create a virtual environment (optional but recommended)**:
+```bash
+python -m venv env
+source env/bin/activate  # On Windows: env\Scripts\activate
+```
+
+3. **Install dependencies**:
 ```bash
 pip install -r requirements.txt
 ```
-
-3. **Download datasets**:
-```bash
-# Using opendatasets
-pip install opendatasets
-```
-
-Then run the dataset download cells in the notebook, or manually download from the links provided above.
 
 ---
 
 ## 🚀 Usage
 
-### Training the Model
+TD-Net has been completely refactored into a modular, production-ready Python package. You can run the entire pipeline—from downloading the data to training and evaluation—using the `main.py` CLI.
 
-1. **Open the Jupyter notebook**:
+### Basic Training Pipeline
+
+To run the complete pipeline (Downloads the default Kaggle dataset -> Splits data -> Augments -> Trains -> Evaluates):
+
 ```bash
-jupyter notebook TD-Net.ipynb
+python main.py
 ```
 
-2. **Configure parameters** (in the notebook):
-```python
-IMAGE_SIZE = (224, 224)
-BATCH_SIZE = 4
-EPOCHS = 20
-LEARNING_RATE = 0.0001
+### CLI Arguments
+
+You can customize the pipeline using the following flags:
+
+- `--skip-download`: Skips dataset downloading (use if your data is already in the `data/` folder).
+- `--skip-augment`: Skips the offline dataset augmentation step.
+- `--no-online-augment`: Disables heavy on-the-fly image augmentation during training.
+- `--evaluate-only`: Skips training and evaluates an existing saved model.
+- `--dataset DATASET`: Specify a custom dataset directory name within `data/` (e.g., `--dataset "TBX11K"`).
+- `--gradcam IMAGE`: Run Grad-CAM visualization on a specific image path.
+
+### Using Custom Datasets
+
+To train TD-Net on your own dataset:
+1. Place your dataset directory inside the `data/` folder (e.g., `data/my-dataset`).
+2. Ensure it has subdirectories for each class (e.g., `data/my-dataset/Normal` and `data/my-dataset/Tuberculosis`).
+3. Run the pipeline with your custom dataset name:
+
+```bash
+python main.py --skip-download --dataset "my-dataset"
 ```
 
-3. **Run all cells** to:
-   - Load and preprocess data
-   - Apply image augmentation
-   - Train the TD-Net model
-   - Evaluate on test sets
-   - Generate visualizations
+### Inference & Grad-CAM
 
-### Inference on New Images
-```python
-import tensorflow as tf
-from tensorflow.keras.preprocessing import image
-import numpy as np
+To visualize what the model is focusing on for a specific X-ray image:
 
-# Load trained model
-model = tf.keras.models.load_model('models/mobilenet_checkpoint.keras')
-
-# Load and preprocess image
-img_path = 'path/to/chest_xray.png'
-img = image.load_img(img_path, target_size=(224, 224))
-img_array = image.img_to_array(img)
-img_array = np.expand_dims(img_array, axis=0)
-img_array = img_array / 255.0
-
-# Make prediction
-prediction = model.predict(img_array)
-result = "TB Positive" if prediction[0][0] > 0.5 else "Normal"
-confidence = prediction[0][0] if prediction[0][0] > 0.5 else 1 - prediction[0][0]
-
-print(f"Prediction: {result} (Confidence: {confidence:.2%})")
+```bash
+python main.py --gradcam "path/to/chest_xray.png"
 ```
+
+The resulting heatmap will be saved in the `results/` folder, showing the attention mechanisms at work.
 
 ---
 
