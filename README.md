@@ -8,7 +8,7 @@ The methodology achieves **state-of-the-art performance** with **98% accuracy** 
 
 ## 📋 Paper Information
 
-
+The paper is available at [https://link.springer.com/chapter/10.1007/978-3-032-13497-4_6](https://link.springer.com/chapter/10.1007/978-3-032-13497-4_6)
 
 ---
 
