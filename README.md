@@ -205,7 +205,6 @@ Contributions are welcome! Please feel free to:
 ## 📜 Citation
 
 ```{bibtex}
-
 @Inbook{Ghosh2026,
 author="Ghosh, Debgandhar
 and Singh, Pawan Kumar",
@@ -224,9 +223,6 @@ isbn="978-3-032-13497-4",
 doi="10.1007/978-3-032-13497-4_6",
 url="https://doi.org/10.1007/978-3-032-13497-4_6"
 }
-
-
-
 ```
 
 ---
