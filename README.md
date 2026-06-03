@@ -204,7 +204,30 @@ Contributions are welcome! Please feel free to:
 
 ## 📜 Citation
 
+```{bibtex}
 
+@Inbook{Ghosh2026,
+author="Ghosh, Debgandhar
+and Singh, Pawan Kumar",
+editor="Rivera, Gilberto
+and Pedrycz, Witold
+and Labella, {\'A}lvaro
+and Florencia, Rogelio",
+title="TD-Net: A Deep Learning Technique with Spatial and Channel Attention for Efficient Tuberculosis Detection from Chest X-Ray Scans",
+bookTitle="Recent Advances in Artificial Neural Networks: Case Studies and Applications",
+year="2026",
+publisher="Springer Nature Switzerland",
+address="Cham",
+pages="161--192",
+abstract="The disease, Tuberculosis (TB) is a bacterial infection that results from Mycobacterium tuberculosis and can be fatal if not recognized early. Chest X-rays are used to identify TB, thus requiring close supervision from radiologists and doctors. Tuberculosis (TB) can be discovered and recognized through chest X-rays employing deep learning methodologies, leveraging the capabilities of Convolutional Neural Networks (CNNs) to differentiate between X-rays of individuals with TB and those that are normal. In this work, we developed a new deep learning methodology, named as TD-Net, incorporating pre-trained MobileNetV2 architecture with spatial and channel attention to elevate the accuracy, F1 Score, Recall and AUC-ROC of MobileNetV2. The experiment shows that the proposed TD-Net methodology gains a test accuracy of 98 and 97{\%} respectively and an AUC-ROC score of 0.99 and 0.98 respectively on two benchmark TB datasets namely, a publicly available dataset curated by Twasifur Rahman et al. and TBX11 dataset.",
+isbn="978-3-032-13497-4",
+doi="10.1007/978-3-032-13497-4_6",
+url="https://doi.org/10.1007/978-3-032-13497-4_6"
+}
+
+
+
+```
 
 ---
 
